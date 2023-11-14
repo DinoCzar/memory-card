@@ -1,8 +1,7 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This game test the player so see if they are able to click every image that is displayed without clicking any of them twice. The photos will randomly rearrange after every click. If a picture is clicked more than once, the player loses. The player will receive one point for every image they click, and if they click all of the images, they recieve 9 points to win the game. 
 
-Currently, two official plugins are available:
+This React app pulls 9 images from the giphy API and randmonly rearranges the gallery of photos every time an image is clicked. It keeps track of the total number of clicks for each image, and will reset if the game is won or lost. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+I used React, Vite, and ChatGPT to make this project.
