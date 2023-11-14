@@ -36,6 +36,9 @@ function ImageGallery() {
     // Update the terms array state with the shuffled order
     setTermsArray(shuffledTerms);
 
+    // Reset all click counts to 0
+    setTermClickCounts({});
+    
     // Reset the total click count to 0
     setClickCount(0);
   };
