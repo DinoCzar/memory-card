@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 function generateImage() {
-	const [catImage, setCatImage] = useState('');
+	const [image, setImage] = useState('');
 	const apiKey = '4KfkvfVeJogPMZp3DR2jB8sMaWw4o3rc';
 	const searchTerm = 'cats';
 	const apiURL =
@@ -10,28 +10,26 @@ function generateImage() {
 		'&s=' +
 		searchTerm;
 
-	useEffect(() => {
-		async function getImage() {
-			try {
-				const response = await fetch(apiURL, { mode: 'cors' });
+	async function getImage() {
+		try {
+			const response = await fetch(apiURL, { mode: 'cors' });
 
-				if (!response.ok) {
-					throw new Error('Failed to fetch cat image');
-				}
-
-				const catData = await response.json();
-				setCatImage(catData.data.images.original.url);
-			} catch (error) {
-				console.error('Error fetching cat image:', error.message);
+			if (!response.ok) {
+				throw new Error('Failed to fetch cat image');
 			}
-		}
 
-		getImage();
-	}, []);
+			const catData = await response.json();
+			setImage(catData.data.images.original.url);
+		} catch (error) {
+			console.error('Error fetching cat image:', error.message);
+		}
+	}
+
+	getImage();
 
 	return (
 		<>
-			<img src={catImage} alt='Cat' />
+			<img src={image} alt='Cat' />
 		</>
 	);
 }
