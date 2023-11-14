@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import GenerateImage from './GenerateImage';
 
 function ImageGallery() {
@@ -37,6 +37,18 @@ function ImageGallery() {
 		setTermsArray(shuffledTerms);
 	};
 
+	useEffect(() => {
+		// Check if the click count for any term is 2
+		const termWithTwoClicks = Object.keys(termClickCounts).find(
+			(term) => termClickCounts[term] === 2
+		);
+
+		if (termWithTwoClicks) {
+			// Execute rearrangePictures if the click count for the term is 2
+			rearrangePictures();
+		}
+	}, [termClickCounts]);
+
 	return (
 		<div className='container'>
 			<div className='counter'>Score: {clickCount}</div>
@@ -49,7 +61,6 @@ function ImageGallery() {
 					</div>
 				))}
 			</div>
-			<button onClick={rearrangePictures}>Rearrange Pictures</button>
 		</div>
 	);
 }
