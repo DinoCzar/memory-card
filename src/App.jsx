@@ -5,14 +5,15 @@ import './styles/App.css'
 
 function App() {
 
-  const apiKey = '4KfkvfVeJogPMZp3DR2jB8sMaWw4o3rc';
+  function getImages() {
 
-function getImages(apiKey, searchTerm) {
+    const apiKey = '4KfkvfVeJogPMZp3DR2jB8sMaWw4o3rc';
+    const searchTerm = 'cats';
     
     const apiURL =
         'https://api.giphy.com/v1/gifs/translate?api_key=' +
         apiKey + searchTerm;
-    async function retreiveImages() {
+    async function getImages() {
         const response = await fetch(apiURL, { mode: 'cors' });
         const imagesArray = await response.json();
            }
@@ -21,8 +22,11 @@ function getImages(apiKey, searchTerm) {
     });
 }
 
+getImages();
+
   return (
     <>
+    <img src={imagesArray}></img>
     </>
   )
 }
