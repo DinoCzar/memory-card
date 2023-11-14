@@ -1,27 +1,31 @@
 import React, { useState } from 'react';
 
-function generateImage() {
-	const [image, setImage] = useState('');
+function generateImage({term}) {
+
+    const searchTerms = {
+        term: term
+    }
+
+	const [imageURL, setImageURL] = useState('');
 	const apiKey = '4KfkvfVeJogPMZp3DR2jB8sMaWw4o3rc';
-	const searchTerm = 'cats';
 	const apiURL =
 		'https://api.giphy.com/v1/gifs/translate?api_key=' +
 		apiKey +
 		'&s=' +
-		searchTerm;
+		searchTerms.term;
 
 	async function getImage() {
 		try {
 			const response = await fetch(apiURL, { mode: 'cors' });
 
 			if (!response.ok) {
-				throw new Error('Failed to fetch cat image');
+				throw new Error('Failed to fetch image');
 			}
 
-			const catData = await response.json();
-			setImage(catData.data.images.original.url);
+			const newImage = await response.json();
+			setImageURL(newImage.data.images.original.url);
 		} catch (error) {
-			console.error('Error fetching cat image:', error.message);
+			console.error('Error fetching image:', error.message);
 		}
 	}
 
@@ -29,7 +33,7 @@ function generateImage() {
 
 	return (
 		<>
-			<img src={image} alt='Cat' />
+			<img src={imageURL} alt='Image' />
 		</>
 	);
 }
