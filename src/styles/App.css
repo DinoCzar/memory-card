@@ -6,18 +6,30 @@
 
 body {
 	display: grid;
+}
 
+.counter {
+  font-size: 30px;
+  text-align: center;
+  padding: 10px;
 }
 
 .gallery {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  align-items: center;
-  justify-items: center;
-  background-color: black;
+	display: grid;
+  padding: 10px;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	justify-items: center;
+	background-color: black;
+	gap: 10px;
+	text-align: center;
 }
 
 img {
-  width: 100%;
+	width: 100%;
+}
+
+p {
+  color: white;
+  font-size: 20px;
 }
