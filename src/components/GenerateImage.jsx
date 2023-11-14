@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 
-function generateImage({term}) {
-
-    const searchTerms = {
-        term: term
-    }
+function generateImage({ term }) {
+	const searchTerms = {
+		term: term,
+	};
 
 	const [imageURL, setImageURL] = useState('');
 	const apiKey = '4KfkvfVeJogPMZp3DR2jB8sMaWw4o3rc';

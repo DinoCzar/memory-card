@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import GenerateImage from './components/GenerateImage.jsx';
+import ImageGallery from './components/ImageGallery.jsx';
 import './styles/App.css';
 
 function App() {
 	return (
 		<>
-			<GenerateImage term='shark' />
-			<GenerateImage />
-			<GenerateImage />
-			<GenerateImage />
-			<GenerateImage />
+			<ImageGallery />
 		</>
 	);
 }
