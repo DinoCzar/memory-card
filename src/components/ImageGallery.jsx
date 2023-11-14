@@ -57,10 +57,7 @@ function ImageGallery() {
 
 			// Rearrange pictures randomly
 			rearrangePictures();
-		}
-
-		// Check if the total click count is 9
-		if (clickCount === 9) {
+		} else if (clickCount === 9) {
 			alert('You Win!');
 			// Reset all click counts to 0
 			setTermClickCounts({});
